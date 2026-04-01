@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GabbyTech Academy API</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  
+</head>
+<body>
+
+  <header>
+    <h1>GabbyTech Academy</h1>
+    <a href="/api-docs">Open Swagger UI →</a>
+  </header>
+
+  <main>
+    <div class="badge">CSE 341 · Week 03 Project · BYU-Idaho</div>
+
+    <h2>School Management <span>API</span></h2>
+
+    <p class="intro">
+      This API manages student records and course listings for GabbyTech Academy.
+      It is built with Node.js, Express, and MongoDB (Mongoose).
+      Use the Swagger UI link to test all endpoints.
+    </p>
+
+    <div class="endpoints">
+      <div class="endpoint-group">
+        <h3>Students — /students</h3>
+        <div class="endpoint">
+          <span class="method get">GET</span>
+          <span class="path">/students</span>
+          <span class="desc">Get all students</span>
+        </div>
+        <div class="endpoint">
+          <span class="method get">GET</span>
+          <span class="path">/students/:id</span>
+          <span class="desc">Get a single student</span>
+        </div>
+        <div class="endpoint">
+          <span class="method post">POST</span>
+          <span class="path">/students</span>
+          <span class="desc">Add a new student</span>
+        </div>
+        <div class="endpoint">
+          <span class="method put">PUT</span>
+          <span class="path">/students/:id</span>
+          <span class="desc">Update a student</span>
+        </div>
+        <div class="endpoint">
+          <span class="method delete">DELETE</span>
+          <span class="path">/students/:id</span>
+          <span class="desc">Remove a student</span>
+        </div>
+      </div>
+
+      <div class="endpoint-group">
+        <h3>Courses — /courses</h3>
+        <div class="endpoint">
+          <span class="method get">GET</span>
+          <span class="path">/courses</span>
+          <span class="desc">Get all courses</span>
+        </div>
+        <div class="endpoint">
+          <span class="method get">GET</span>
+          <span class="path">/courses/:id</span>
+          <span class="desc">Get a single course</span>
+        </div>
+        <div class="endpoint">
+          <span class="method post">POST</span>
+          <span class="path">/courses</span>
+          <span class="desc">Add a new course</span>
+        </div>
+        <div class="endpoint">
+          <span class="method put">PUT</span>
+          <span class="path">/courses/:id</span>
+          <span class="desc">Update a course</span>
+        </div>
+        <div class="endpoint">
+          <span class="method delete">DELETE</span>
+          <span class="path">/courses/:id</span>
+          <span class="desc">Remove a course</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <p>All endpoints are documented and testable in Swagger UI.</p>
+      <a href="/api-docs" class="btn">Open API Docs</a>
+    </div>
+  </main>
+
+</body>
+</html>
