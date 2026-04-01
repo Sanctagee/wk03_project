@@ -1,14 +1,14 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Gabbytech Academy API",
+    "title": "GabbyTech Academy API",
     "description": "School Management API for Students and Courses",
     "version": "1.0.0"
   },
-  "host": "https://school-management-apis-pm5k.onrender.com",
+  "host": "localhost:4000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/students/": {
