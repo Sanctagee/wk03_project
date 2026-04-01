@@ -5,8 +5,8 @@ const doc = {
     title: 'Gabbytech Academy API',
     description: 'School Management API for Students and Courses'
   },
-  host: 'localhost:4000',
-  schemes: ['http'],
+  host: 'https://school-management-apis-pm5k.onrender.com',
+  schemes: ['https'],
   definitions: {
     Student: {
       firstName: 'Tony',
