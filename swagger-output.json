@@ -1,0 +1,343 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Gabbytech Academy API",
+    "description": "School Management API for Students and Courses",
+    "version": "1.0.0"
+  },
+  "host": "localhost:4000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/students/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Student data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/students/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Fields to update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/courses/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Course data",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Course"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/courses/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Fields to update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Course"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Student": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "Tony"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Gabito"
+        },
+        "regNumber": {
+          "type": "string",
+          "example": "STU-001"
+        },
+        "grade": {
+          "type": "string",
+          "example": "JSS1"
+        },
+        "gender": {
+          "type": "string",
+          "example": "Male"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "example": "2010-05-14"
+        },
+        "email": {
+          "type": "string",
+          "example": "tony.gabito@gabbytech.com"
+        },
+        "stateOfOrigin": {
+          "type": "string",
+          "example": "Lagos"
+        },
+        "status": {
+          "type": "string",
+          "example": "Active"
+        }
+      }
+    },
+    "Course": {
+      "type": "object",
+      "properties": {
+        "courseCode": {
+          "type": "string",
+          "example": "MTH101"
+        },
+        "courseName": {
+          "type": "string",
+          "example": "Mathematics"
+        },
+        "department": {
+          "type": "string",
+          "example": "Sciences"
+        },
+        "gradeLevel": {
+          "type": "string",
+          "example": "JSS1"
+        },
+        "teacherName": {
+          "type": "string",
+          "example": "Mr. Adeyemi"
+        },
+        "description": {
+          "type": "string",
+          "example": "Basic mathematics for junior secondary students"
+        },
+        "daysPerWeek": {
+          "type": "number",
+          "example": 3
+        },
+        "isActive": {
+          "type": "boolean",
+          "example": true
+        }
+      }
+    }
+  }
+}
