@@ -5,10 +5,10 @@
     "description": "School Management API for Students and Courses",
     "version": "1.0.0"
   },
-  "host": "localhost:4000",
+  "host": "https://school-management-apis-pm5k.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/students/": {
