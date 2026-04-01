@@ -2,11 +2,11 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'Gabbytech Academy API',
+    title: 'GabbyTech Academy API',
     description: 'School Management API for Students and Courses'
   },
-  host: 'https://school-management-apis-pm5k.onrender.com',
-  schemes: ['https'],
+  host: process.env.RENDER_EXTERNAL_HOSTNAME || 'localhost:4000',
+  schemes: process.env.NODE_ENV === 'production' ? ['https'] : ['http'],
   definitions: {
     Student: {
       firstName: 'Tony',
