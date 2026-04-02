@@ -1,8 +1,4 @@
 const getProfile = (req, res) => {
-  console.log('Session:', req.session);
-  console.log('User:', req.user);
-  console.log('Authenticated:', req.isAuthenticated());
-
   if (!req.isAuthenticated()) {
     return res.status(401).json({ error: 'Not logged in.' });
   }
