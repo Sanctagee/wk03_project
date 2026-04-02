@@ -10,25 +10,29 @@ passport.use(
       callbackURL: process.env.GOOGLE_CALLBACK_URL
     },
     async function (accessToken, refreshToken, profile, done) {
-      try {
+    try {
+        console.log('Google strategy called for:', profile.emails[0].value);
+        
         let user = await User.findOne({ googleId: profile.id });
 
         if (user) {
-          return done(null, user);
+        console.log('Existing user found:', user.email);
+        return done(null, user);
         }
 
-        // first time this Google account is logging in — create a record
         user = await User.create({
-          googleId: profile.id,
-          displayName: profile.displayName,
-          email: profile.emails[0].value,
-          photo: profile.photos[0]?.value || ''
+        googleId: profile.id,
+        displayName: profile.displayName,
+        email: profile.emails[0].value,
+        photo: profile.photos[0]?.value || ''
         });
 
+        console.log('New user created:', user.email);
         return done(null, user);
-      } catch (err) {
+    } catch (err) {
+        console.log('Strategy error:', err.message);
         return done(err);
-      }
+    }
     }
   )
 );
