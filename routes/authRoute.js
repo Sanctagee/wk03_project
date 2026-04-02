@@ -11,7 +11,13 @@ router.get(
   '/google/callback',
   passport.authenticate('google', { failureRedirect: '/auth/failed' }),
   (req, res) => {
-    res.redirect('/auth/profile');
+    req.session.save((err) => {
+      if (err) {
+        console.log('Session save error:', err);
+        return res.redirect('/auth/failed');
+      }
+      res.redirect('/auth/profile');
+    });
   }
 );
 
