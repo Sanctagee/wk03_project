@@ -1,6 +1,9 @@
-// GET /auth/me — shows who is currently logged in
 const getProfile = (req, res) => {
-  if (!req.user) {
+  console.log('Session:', req.session);
+  console.log('User:', req.user);
+  console.log('Authenticated:', req.isAuthenticated());
+
+  if (!req.isAuthenticated()) {
     return res.status(401).json({ error: 'Not logged in.' });
   }
   res.status(200).json({
@@ -14,7 +17,6 @@ const getProfile = (req, res) => {
   });
 };
 
-// GET /auth/logout
 const logout = (req, res) => {
   req.logout((err) => {
     if (err) {
