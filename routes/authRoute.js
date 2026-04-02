@@ -11,12 +11,12 @@ router.get(
   '/google/callback',
   passport.authenticate('google', { failureRedirect: '/auth/failed' }),
   (req, res) => {
-    res.redirect('/auth/me');
+    res.redirect('/auth/profile');
   }
 );
 
 // shows the logged-in user's profile
-router.get('/me', getProfile);
+router.get('/profile', getProfile);
 
 // logs out and destroys the session
 router.get('/logout', logout);
