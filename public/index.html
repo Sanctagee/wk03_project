@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GabbyTech Academy API</title>
   <link rel="stylesheet" href="./styles/style.css">
-  
 </head>
 <body>
 
@@ -15,17 +14,41 @@
   </header>
 
   <main>
-    <div class="badge">CSE 341 · Week 03 Project · BYU-Idaho</div>
+    <div class="badge">CSE 341 · Week 04 Project · BYU-Idaho</div>
 
     <h2>School Management <span>API</span></h2>
 
     <p class="intro">
       This API manages student records and course listings for GabbyTech Academy.
-      It is built with Node.js, Express, and MongoDB (Mongoose).
-      Use the Swagger UI link to test all endpoints.
+      It is built with Node.js, Express, and MongoDB (Mongoose), with data organised
+      across four collections. Week 4 extended the project with Google OAuth 2.0
+      authentication, so write operations are now protected and only accessible to
+      signed-in users. Sessions are stored in MongoDB and user accounts are
+      created automatically on first login.
+      Use the Swagger UI link to explore and test all endpoints.
     </p>
 
     <div class="endpoints">
+
+      <div class="endpoint-group">
+        <h3>Authentication — /auth</h3>
+        <div class="endpoint">
+          <span class="method get">GET</span>
+          <span class="path">/auth/google</span>
+          <span class="desc">Sign in with Google</span>
+        </div>
+        <div class="endpoint">
+          <span class="method get">GET</span>
+          <span class="path">/auth/profile</span>
+          <span class="desc">View current session profile</span>
+        </div>
+        <div class="endpoint">
+          <span class="method get">GET</span>
+          <span class="path">/auth/logout</span>
+          <span class="desc">End the current session</span>
+        </div>
+      </div>
+
       <div class="endpoint-group">
         <h3>Students — /students</h3>
         <div class="endpoint">
@@ -82,6 +105,22 @@
           <span class="path">/courses/:id</span>
           <span class="desc">Remove a course</span>
         </div>
+      </div>
+
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-number">4</span>
+        <span class="stat-label">Collections</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">13</span>
+        <span class="stat-label">Endpoints</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">25+</span>
+        <span class="stat-label">Schema Fields</span>
       </div>
     </div>
 
