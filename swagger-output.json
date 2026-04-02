@@ -28,7 +28,8 @@
   "paths": {
     "/auth/google": {
       "get": {
-        "description": "",
+        "summary": "Login with Google",
+        "description": "Redirects the user to Google for OAuth authentication. Open this URL directly in your browser — do not test through Swagger Execute.",
         "responses": {
           "default": {
             "description": ""
@@ -36,48 +37,63 @@
         }
       }
     },
-    "/auth/google/callback": {
+    "/auth/profile": {
       "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/auth/me": {
-      "get": {
-        "description": "",
+        "summary": "Get current user profile",
+        "description": "Returns the profile of the currently logged-in user. Requires an active Google OAuth session.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "User is logged in",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "loggedIn": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "64abc..."
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Tony Gabito"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "tonygabito@gmail.com"
+                    },
+                    "photo": {
+                      "type": "string",
+                      "example": "https://..."
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Not logged in"
           }
         }
       }
     },
     "/auth/logout": {
       "get": {
-        "description": "",
+        "summary": "Log out",
+        "description": "Ends the current session and logs the user out.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successfully logged out"
           },
           "500": {
             "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/auth/failed": {
-      "get": {
-        "description": "",
-        "responses": {
-          "401": {
-            "description": "Unauthorized"
           }
         }
       }
