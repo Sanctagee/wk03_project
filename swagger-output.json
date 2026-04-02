@@ -2,14 +2,29 @@
   "swagger": "2.0",
   "info": {
     "title": "GabbyTech Academy API",
-    "description": "School Management API for Students and Courses",
-    "version": "1.0.0"
+    "description": "School Management API for Students and Courses — with Google OAuth authentication for write operations.",
+    "version": "2.0.0",
+    "contact": {
+      "name": "GabbyTech",
+      "email": "gabbytech@gmail.com"
+    }
   },
-  "host": "school-management-apis-pm5k.onrender.com",
+  "host": "localhost:4000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "authorizationUrl": "/auth/google",
+      "flow": "implicit",
+      "scopes": {
+        "profile": "Your Google profile",
+        "email": "Your Google email"
+      }
+    }
+  },
   "paths": {
     "/students/": {
       "get": {
@@ -42,6 +57,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -101,6 +119,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -125,6 +146,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -166,6 +190,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -225,6 +252,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -249,6 +279,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
