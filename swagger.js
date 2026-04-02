@@ -3,10 +3,29 @@ const swaggerAutogen = require('swagger-autogen')();
 const doc = {
   info: {
     title: 'GabbyTech Academy API',
-    description: 'School Management API for Students and Courses'
+    description: 'School Management API for Students and Courses — with Google OAuth authentication for write operations.',
+    version: '2.0.0',
+    "contact": {
+      "name": "GabbyTech",
+      "email": "gabbytech@gmail.com"
+    }
   },
-  host: "school-management-apis-pm5k.onrender.com",
-  schemes: ["https"],
+  
+  host: process.env.NODE_ENV === 'production'
+    ? 'school-management-apis-pm5k.onrender.com'
+    : 'localhost:4000',
+  schemes: process.env.NODE_ENV === 'production' ? ['https'] : ['http'],
+  securityDefinitions: {
+    OAuth2: {
+      type: 'oauth2',
+      authorizationUrl: '/auth/google',
+      flow: 'implicit',
+      scopes: {
+        profile: 'Your Google profile',
+        email: 'Your Google email'
+      }
+    }
+  },
   definitions: {
     Student: {
       firstName: 'Tony',
